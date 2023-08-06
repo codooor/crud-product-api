@@ -9,19 +9,10 @@ import colors from "colors";
 
 connectDB();
 
-try {
-  const server = new ApolloServer({
-    schema,
-    cors: {
-      origin: "*", // Adjust as needed
-      methods: ["GET", "POST", "PUT", "DELETE"],
-      allowedHeaders: ["Content-Type", "Authorization"],
-    },
-  });
+const server = new ApolloServer({
+  schema,
+});
 
-  server.listen({ port: 4000 }).then(({ url }) => {
-    console.log(`Server ready at ${url}`);
-  });
-} catch (err) {
-  console.error(`Failed to start server ${err.message}`);
-}
+const { url } = await startStandaloneServer(server);
+
+console.log(`Server ready at ${url}`.blue.bold);
