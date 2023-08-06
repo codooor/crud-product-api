@@ -8,7 +8,7 @@ export default function Hero() {
           className="img-context"
           src={waveImage}
           alt="wave"
-          style={{ width: "auto", height: "80vh" }}
+          style={{ width: "80vw", height: "80vh" }}
         />
       </section>
     </>

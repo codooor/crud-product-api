@@ -17,7 +17,6 @@ code {
 /*** main application  ***/
 .app-container {
   margin: 2rem;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,13 +24,8 @@ code {
 
 /*** navbar ***/
 
-.navbar {
-  margin: 0.5rem;
-}
-
 .navbar-container {
   width: 100%;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,14 +35,13 @@ code {
   color: rgb(150, 27, 27);
   text-decoration: none;
   font-size: 1.5rem;
-  padding-right: 2px;
 }
 
 .navbar-menu {
   list-style-type: none;
   padding: 0;
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .navbar-menu li a {
@@ -59,4 +52,37 @@ code {
 .navbar-menu li a:hover {
   text-decoration: underline;
   color: rgb(85, 50, 117);
+}
+
+/* navbar media queries */
+
+@media (min-width: 992px) {
+  /* desktop */
+
+  .navbar-logo {
+    font-size: 2rem;
+  }
+
+  .navbar-menu li a {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  /* larger screens*/
+
+  .navbar-logo {
+    font-size: 2.5rem;
+  }
+
+  .navbar-menu {
+    gap: 2.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  /* tablets */
+  .navbar-menu {
+    gap: 2rem;
+  }
 }
