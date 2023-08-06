@@ -86,6 +86,7 @@ const mutation = new GraphQLObjectType({
         }
       },
     },
+
     updateProduct: {
       type: ProductType,
       args: {

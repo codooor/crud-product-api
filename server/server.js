@@ -13,6 +13,19 @@ const server = new ApolloServer({
   schema,
 });
 
-const { url } = await startStandaloneServer(server);
+try {
+  const { url } = await startStandaloneServer(server, {
+    listen: {
+      port: 4000,
+      cors: {
+        origin: "/",
+        methods: ["GET", "POST", "PUT", "DELETE"],
+        allowedHeaders: ["Content-Type", "Authorization"],
+      },
+    },
+  });
 
-console.log(`Server ready at ${url}`.blue.italic);
+  console.log(`Server ready at ${url}`.blue.italic);
+} catch (err) {
+  console.error(`Failed to start server ${err.message}`);
+}
