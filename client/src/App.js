@@ -1,8 +1,12 @@
+import Hero from "./components/Hero";
+import Navbar from "./components/Navbar";
+
 function App() {
   return (
     <>
+      <Navbar />
       <main className="app-container">
-        <h6>hello</h6>
+        <Hero className="hero-photo" />
       </main>
     </>
   );

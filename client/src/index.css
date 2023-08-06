@@ -1,3 +1,4 @@
+/* Global Resets */
 body {
   margin: 0;
   padding: 0;
@@ -13,11 +14,49 @@ code {
     monospace;
 }
 
+/*** main application  ***/
 .app-container {
-  margin: 2rem 2rem;
-  height: 90vh;
-  width: 90vw;
+  margin: 2rem;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/*** navbar ***/
+
+.navbar {
+  margin: 0.5rem;
+}
+
+.navbar-container {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-logo {
+  color: rgb(150, 27, 27);
+  text-decoration: none;
+  font-size: 1.5rem;
+  padding-right: 2px;
+}
+
+.navbar-menu {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar-menu li a {
+  color: rgb(173, 106, 132);
+  text-decoration: none;
+}
+
+.navbar-menu li a:hover {
+  text-decoration: underline;
+  color: rgb(85, 50, 117);
 }
