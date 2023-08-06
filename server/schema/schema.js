@@ -28,7 +28,11 @@ const RootQuery = new GraphQLObjectType({
     products: {
       type: new GraphQLList(ProductType),
       async resolve(parent, args) {
-        return await Product.find();
+        try {
+          return await Product.find();
+        } catch (err) {
+          throw new Error("Failed to fetch products: " + err.message);
+        }
       },
     },
   },
@@ -47,16 +51,21 @@ const mutation = new GraphQLObjectType({
         inventory: { type: new GraphQLNonNull(GraphQLInt) },
       },
       async resolve(parent, args) {
-        const product = new Product({
-          name: args.name,
-          price: args.price,
-          description: args.description,
-          inventory: args.inventory,
-        });
+        try {
+          const product = new Product({
+            name: args.name,
+            price: args.price,
+            description: args.description,
+            inventory: args.inventory,
+          });
 
-        return await product.save();
+          return await product.save();
+        } catch (err) {
+          throw new Error("Failed to create product: " + err.message);
+        }
       },
     },
+
     deleteProduct: {
       type: ProductType,
       args: {
@@ -64,12 +73,16 @@ const mutation = new GraphQLObjectType({
       },
 
       async resolve(parent, args) {
-        const deletedProduct = await Product.findByIdAndDelete(args.id);
+        try {
+          const deletedProduct = await Product.findByIdAndDelete(args.id);
 
-        if (deletedProduct) {
-          return deletedProduct;
-        } else {
-          throw new Error(`Product with id: ${args.id} not found`);
+          if (deletedProduct) {
+            return deletedProduct;
+          } else {
+            throw new Error(`Product with id: ${args.id} not found`);
+          }
+        } catch (err) {
+          throw new Error("Failed to delete product: " + err.message);
         }
       },
     },
@@ -84,7 +97,11 @@ const mutation = new GraphQLObjectType({
         inventory: { type: GraphQLInt },
       },
       async resolve(parent, args) {
-        return await Product.findByIdAndUpdate(args.id, args, { new: true });
+        try {
+          return await Product.findByIdAndUpdate(args.id, args, { new: true });
+        } catch (err) {
+          throw new Error("Failed to update product: " + err.message);
+        }
       },
     },
   },
