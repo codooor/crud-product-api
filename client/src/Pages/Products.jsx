@@ -9,12 +9,13 @@ export default function Products() {
 
   return (
     <div className="products-list">
-      {data.products.map(({ id, name, price, description }) => (
+      {data.products.map(({ id, name, price, description, scents }) => (
         <div key={id} className="product-container">
           <h3 className="product-name">{name}</h3>
-          <b className="product-header">About this Product</b>
+          <b className="product-header"></b>
           <p className="product-description">{description}</p>
           <ul className="product-details">
+            <li className="product-scent">{scents}</li>
             <li className="product-price">$ {price}</li>
           </ul>
         </div>

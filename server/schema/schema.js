@@ -11,6 +11,7 @@ import {
 } from "graphql";
 
 // Queries
+
 const ProductType = new GraphQLObjectType({
   name: "Product",
   fields: () => ({
@@ -18,6 +19,7 @@ const ProductType = new GraphQLObjectType({
     name: { type: new GraphQLNonNull(GraphQLString) },
     price: { type: new GraphQLNonNull(GraphQLInt) },
     description: { type: new GraphQLNonNull(GraphQLString) },
+    scents: { type: new GraphQLNonNull(GraphQLString) },
     inventory: { type: new GraphQLNonNull(GraphQLInt) },
   }),
 });
@@ -48,6 +50,7 @@ const mutation = new GraphQLObjectType({
         name: { type: new GraphQLNonNull(GraphQLString) },
         price: { type: new GraphQLNonNull(GraphQLInt) },
         description: { type: new GraphQLNonNull(GraphQLString) },
+        scents: { type: new GraphQLNonNull(GraphQLString) },
         inventory: { type: new GraphQLNonNull(GraphQLInt) },
       },
       async resolve(parent, args) {
@@ -56,6 +59,7 @@ const mutation = new GraphQLObjectType({
             name: args.name,
             price: args.price,
             description: args.description,
+            scents: args.scents,
             inventory: args.inventory,
           });
 
@@ -95,6 +99,7 @@ const mutation = new GraphQLObjectType({
         name: { type: GraphQLString },
         price: { type: GraphQLInt },
         description: { type: GraphQLString },
+        scents: { type: GraphQLString },
         inventory: { type: GraphQLInt },
       },
       async resolve(parent, args) {
