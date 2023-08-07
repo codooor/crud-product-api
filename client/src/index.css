@@ -40,6 +40,7 @@ code {
 
 .navbar-container {
   width: 100%;
+  height: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,8 +79,8 @@ code {
   margin: 0;
   position: absolute;
   top: 100%;
-  background-color: #430f58;
-  border: 1px solid #999;
+
+  /* border: 1px solid #999; */
 }
 
 .user-menu:hover .dropdown-menu {
@@ -100,7 +101,7 @@ code {
 
 .dropdown-menu li {
   background: none;
-  color: #9896f1;
+  color: #febe7e;
   border: none;
   padding: 0;
   cursor: pointer;
@@ -109,7 +110,7 @@ code {
 
 .dropdown-menu li a,
 .dropdown-menu li {
-  color: #9896f1;
+  color: #030303;
 }
 
 .dropdown-menu li a:hover,

@@ -19,9 +19,11 @@ export default function UserMenu() {
         <li>
           <Link to="/login">Login</Link>
         </li>
+        <hr />
         <li>
           <Link to="/register">Register</Link>
         </li>
+        <hr />
         <li>
           <a onClick={handleLogout}>Logout</a>
         </li>
