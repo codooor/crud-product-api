@@ -1,6 +1,6 @@
 export default function Testimonials() {
   return (
-    <>
+    <div className="testimonials-container">
       <section className="wrapper border-radius">
         <header className="title">
           It <small>just</small> works <small>!</small>
@@ -35,6 +35,6 @@ export default function Testimonials() {
           </p>
         </article>
       </section>
-    </>
+    </div>
   );
 }

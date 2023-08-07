@@ -198,27 +198,25 @@ code {
 /* Testimonials */
 /* ------------------------------------- */
 
+.testimonials-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .wrapper {
-  width: 90vw;
+  width: 45%;
   height: auto;
   display: block;
   border: 5px solid rgb(173, 106, 132);
   margin: 50px auto;
   padding: 20px;
   position: relative;
+  margin: 0.5rem;
 }
 
-.wrapper:after,
-.wrapper:before {
-  content: "";
-  position: absolute;
-  font-family: "FontAwesome";
-  font-size: 50px;
-}
-
-.wrapper .title,
-.wrapper .description {
-  display: block;
+.title,
+.description {
   width: 100%;
   color: rgb(85, 50, 117);
 }
