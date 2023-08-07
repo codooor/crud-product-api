@@ -1,4 +1,5 @@
 import { useMutation } from "@apollo/client";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { LOGIN_USER } from "../mutations";
 
@@ -6,6 +7,8 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [login, { loading, error }] = useMutation(LOGIN_USER);
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,6 +18,7 @@ export default function Login() {
 
       if (data) {
         localStorage.setItem("token", data.login.token);
+        navigate("/products");
       }
     } catch (err) {
       console.error(err);
@@ -43,6 +47,7 @@ export default function Login() {
         {loading && <p>Loading...</p>}
         {error && <p className="error-message">Error :( Please try again</p>}
       </form>
+
       <p className="register-prompt">
         Don't have an account? <a href="/register">Register Here</a>{" "}
       </p>

@@ -300,7 +300,8 @@ code {
 
 .register-prompt {
   text-align: center;
-  margin-top: 20px;
+  font-size: 14px;
+  padding: 10px;
 }
 
 .register-prompt a {
