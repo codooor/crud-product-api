@@ -91,11 +91,11 @@ code {
 /* mission statement css */
 
 .mission-container {
-  margin: 3rem;
+  margin: 1rem;
   display: flex;
-  flex-direction: row;
+  flex-direction: column-reverse;
   align-items: center;
-  width: 90vw;
+  width: 100vw;
 }
 
 .image-wrapper {
@@ -105,7 +105,7 @@ code {
 }
 
 .image-wrapper img {
-  width: 100%;
+  width: 90%;
   height: auto;
   display: inline-block;
   border-radius: 25px;
@@ -130,4 +130,21 @@ code {
 .mission-statement h3 {
   font-size: 18px;
   text-align: center;
+}
+
+@media (min-width: 768px) {
+  .mission-container {
+    margin: 3rem;
+    flex-direction: row; /* Change back to row layout */
+    width: 90vw;
+  }
+
+  .image-wrapper {
+    width: 50%;
+    opacity: 0.8;
+  }
+
+  .mission-statement {
+    width: 50%;
+  }
 }
