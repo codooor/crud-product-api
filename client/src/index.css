@@ -17,7 +17,6 @@ code {
 
 /*** main application  ***/
 .app-container {
-  margin: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -53,6 +52,16 @@ code {
 .navbar-menu li a:hover {
   text-decoration: underline;
   color: rgb(85, 50, 117);
+}
+
+/* Hero */
+
+.hero-image {
+  width: 100%;
+  max-width: 40vw;
+  height: 100%;
+  max-height: 80vh;
+  border-radius: 30px;
 }
 
 /* mission statement css */

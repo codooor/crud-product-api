@@ -4,11 +4,7 @@ export default function Hero() {
   return (
     <>
       <section>
-        <img
-          src={healingFeels}
-          alt="wave"
-          style={{ width: "40vw", height: "80vh", borderRadius: "30px" }}
-        />
+        <img src={healingFeels} alt="wave" className="hero-image" />
       </section>
     </>
   );
