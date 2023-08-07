@@ -1,10 +1,5 @@
-import Hero from "./components/Hero";
-import Navbar from "./components/Navbar";
-import Mission from "./Pages/Mission";
-import Products from "./Pages/Products";
-import Testimonials from "./Pages/Testimonials";
-import Login from "./Pages/Login";
-
+import { Hero, Navbar } from "./components";
+import { Mission, Products, Testimonials, Login } from "./Pages/";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
