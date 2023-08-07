@@ -458,3 +458,13 @@ code {
 .text-right {
   text-align: right;
 }
+
+/* ------------------------------------- */
+/* Products for Smaller Screens */
+/* ------------------------------------- */
+
+@media (max-width: 600px) {
+  .product-container {
+    flex: 1 0 75%; /* Product takes 100% width of the container on small screens */
+  }
+}
