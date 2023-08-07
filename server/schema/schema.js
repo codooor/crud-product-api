@@ -1,6 +1,7 @@
 import Product from "../models/Product.js";
 import User from "../models/Users.js";
 import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 
 import {
   GraphQLObjectType,
@@ -21,7 +22,14 @@ const UserType = new GraphQLObjectType({
     id: { type: new GraphQLNonNull(GraphQLID) },
     name: { type: new GraphQLNonNull(GraphQLString) },
     email: { type: new GraphQLNonNull(GraphQLString) },
-    isAdmin: { type: GraphQLBoolean },
+  }),
+});
+
+const LoginType = new GraphQLObjectType({
+  name: "Login",
+  fields: () => ({
+    token: { type: new GraphQLNonNull(GraphQLString) },
+    user: { type: new GraphQLNonNull(UserType) },
   }),
 });
 
@@ -95,6 +103,34 @@ const mutation = new GraphQLObjectType({
         } catch (err) {
           throw new Error("Failed to register user: " + err.message);
         }
+      },
+    },
+    login: {
+      type: LoginType,
+      args: {
+        email: { type: new GraphQLNonNull(GraphQLString) },
+        password: { type: new GraphQLNonNull(GraphQLString) },
+      },
+      async resolve(parent, args) {
+        const { email, password } = args;
+
+        const user = await User.findOne({ email: email });
+        if (!user) {
+          throw new Error("User does not exist");
+        }
+
+        const isMatch = await user.matchPassword(password);
+        if (!isMatch) {
+          throw new Error("Invalid Password");
+        }
+
+        const token = jwt.sign(
+          { id: user._id, email: user.email },
+          process.env.JWT_SECRET,
+          { expiresIn: "1h" }
+        );
+
+        return { token, user };
       },
     },
     addProduct: {
