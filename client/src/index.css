@@ -204,11 +204,15 @@ code {
   justify-content: center;
 }
 
+.testimonials:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
 .wrapper {
   width: 45%;
   height: auto;
   display: block;
-  border: 5px solid rgb(173, 106, 132);
+  border: 2px solid rgb(235, 239, 240);
   margin: 50px auto;
   padding: 20px;
   position: relative;
