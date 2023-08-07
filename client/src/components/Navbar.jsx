@@ -14,7 +14,7 @@ export default function Navbar() {
               <a href="/testimonials">Testimonials</a>
             </li>
             <li>
-              <a href="/admin-login">Login</a>
+              <a href="/login">Login</a>
             </li>
           </ul>
         </nav>

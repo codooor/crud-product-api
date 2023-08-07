@@ -1,5 +1,5 @@
 import { useQuery } from "@apollo/client";
-import GET_PRODUCTS from "../queries/GET_PRODUCTS";
+import { GET_PRODUCTS } from "../queries";
 
 export default function Products() {
   const { loading, error, data } = useQuery(GET_PRODUCTS);

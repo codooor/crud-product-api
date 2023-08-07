@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Mission from "./Pages/Mission";
 import Products from "./Pages/Products";
 import Testimonials from "./Pages/Testimonials";
+import Login from "./Pages/Login";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -17,6 +18,7 @@ function App() {
             <Route path="/mission" element={<Mission />} />
             <Route path="/products" element={<Products />} />
             <Route path="/testimonials" element={<Testimonials />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </main>
       </Router>
