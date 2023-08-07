@@ -1,13 +1,13 @@
-import waveImage from "../assets/wave.jpg";
+import healingFeels from "../assets/healingFeelsOpa.png";
 
 export default function Hero() {
   return (
     <>
       <section>
         <img
-          src={waveImage}
+          src={healingFeels}
           alt="wave"
-          style={{ width: "80vw", height: "80vh", borderRadius: "30px" }}
+          style={{ width: "40vw", height: "80vh", borderRadius: "30px" }}
         />
       </section>
     </>
