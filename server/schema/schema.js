@@ -1,4 +1,6 @@
 import Product from "../models/Product.js";
+import User from "../models/Users.js";
+import bcrypt from "bcryptjs";
 
 import {
   GraphQLObjectType,
@@ -8,9 +10,20 @@ import {
   GraphQLInt,
   GraphQLList,
   GraphQLSchema,
+  GraphQLBoolean,
 } from "graphql";
 
 // Queries
+
+const UserType = new GraphQLObjectType({
+  name: "User",
+  fields: () => ({
+    id: { type: new GraphQLNonNull(GraphQLID) },
+    name: { type: new GraphQLNonNull(GraphQLString) },
+    email: { type: new GraphQLNonNull(GraphQLString) },
+    isAdmin: { type: GraphQLBoolean },
+  }),
+});
 
 const ProductType = new GraphQLObjectType({
   name: "Product",
@@ -37,6 +50,16 @@ const RootQuery = new GraphQLObjectType({
         }
       },
     },
+    users: {
+      type: new GraphQLList(UserType),
+      async resolve(parent, args) {
+        try {
+          return await User.find();
+        } catch (err) {
+          throw new Error("Failed to fetch users: " + err.message);
+        }
+      },
+    },
   },
 });
 
@@ -44,6 +67,36 @@ const RootQuery = new GraphQLObjectType({
 const mutation = new GraphQLObjectType({
   name: "Mutation",
   fields: {
+    registerUser: {
+      type: UserType,
+      args: {
+        name: { type: new GraphQLNonNull(GraphQLString) },
+        email: { type: new GraphQLNonNull(GraphQLString) },
+        password: { type: new GraphQLNonNull(GraphQLString) },
+      },
+      async resolve(parents, args) {
+        let user = await User.findOne({ email: args.email });
+        if (user) {
+          throw new Error("User exists");
+        }
+
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(args.password, salt);
+
+        user = new User({
+          name: args.name,
+          email: args.email,
+          password: args.password,
+        });
+
+        try {
+          const savedUser = await user.save();
+          return savedUser;
+        } catch (err) {
+          throw new Error("Failed to register user: " + err.message);
+        }
+      },
+    },
     addProduct: {
       type: ProductType,
       args: {
