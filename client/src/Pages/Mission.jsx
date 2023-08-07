@@ -3,7 +3,7 @@ import flower from "../assets/flower-testimonial.jpg";
 export default function Mission() {
   return (
     <>
-      <main className="mission-container">
+      <main className="mission-container ">
         <section className="image-wrapper">
           <img src={flower} alt="a white flower" />
           <span className="overlay-text"></span>

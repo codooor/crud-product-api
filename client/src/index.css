@@ -15,14 +15,28 @@ code {
     monospace;
 }
 
-/*** main application  ***/
+/* ------------------------------------- */
+/* Customization */
+/* ------------------------------------- */
+
+.full-height {
+  height: 100vh;
+  overflow: auto;
+}
+
+/* ------------------------------------- */
+/* Main Application */
+/* ------------------------------------- */
+
 .app-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/*** navbar ***/
+/* ------------------------------------- */
+/* Navbar Styles */
+/* ------------------------------------- */
 
 .navbar-container {
   width: 100%;
@@ -54,17 +68,21 @@ code {
   color: rgb(85, 50, 117);
 }
 
-/* Hero */
+/* ------------------------------------- */
+/* Hero Styles */
+/* ------------------------------------- */
 
 .hero-image {
   width: 100%;
   max-width: 40vw;
   height: 100%;
-  max-height: 80vh;
+  max-height: 50vh;
   border-radius: 30px;
 }
 
-/* mission statement css */
+/* ------------------------------------- */
+/* Mission Statement Styles */
+/* ------------------------------------- */
 
 .mission-container {
   margin: 1rem;
@@ -108,11 +126,15 @@ code {
   text-align: center;
 }
 
-/* mission statement media queries */
+/* ------------------------------------- */
+/* Media Queries */
+/* ------------------------------------- */
+
+/* Tablets */
 @media (min-width: 768px) {
   .mission-container {
     margin: 3rem;
-    flex-direction: row; /* Change back to row layout */
+    flex-direction: row;
     width: 90vw;
   }
 
@@ -124,13 +146,14 @@ code {
   .mission-statement {
     width: 50%;
   }
+
+  .navbar-menu {
+    gap: 2rem;
+  }
 }
 
-/* navbar media queries */
-
+/* Desktop */
 @media (min-width: 992px) {
-  /* desktop */
-
   .navbar-logo {
     font-size: 2rem;
   }
@@ -140,21 +163,13 @@ code {
   }
 }
 
+/* Larger Screens */
 @media (min-width: 1200px) {
-  /* larger screens*/
-
   .navbar-logo {
     font-size: 2.5rem;
   }
 
   .navbar-menu {
     gap: 2.5rem;
-  }
-}
-
-@media (min-width: 768px) {
-  /* tablets */
-  .navbar-menu {
-    gap: 2rem;
   }
 }
