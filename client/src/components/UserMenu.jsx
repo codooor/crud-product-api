@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import { FaCaretDown } from "react-icons/fa";
 
 export default function UserMenu() {
   const navigate = useNavigate();
@@ -10,7 +11,9 @@ export default function UserMenu() {
 
   return (
     <li className="user-menu">
-      <div className="account">Account</div>
+      <div className="account">
+        Account <FaCaretDown />
+      </div>
 
       <ul className="dropdown-menu">
         <li>
