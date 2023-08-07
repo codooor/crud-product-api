@@ -21,24 +21,31 @@ export default function Login() {
     }
   };
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="form-container">
+      <form className="login-form" onSubmit={handleSubmit}>
         <input
+          className="form-input"
           type="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
+          className="form-input"
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Login</button>
+        <button className="form-button" type="submit">
+          Login
+        </button>
+        {loading && <p>Loading...</p>}
+        {error && <p className="error-message">Error :( Please try again</p>}
       </form>
-      {loading && <p>Loading...</p>}
-      {error && <p>Error :( Please try again</p>}
+      <p className="register-prompt">
+        Don't have an account? <a href="/register">Register Here</a>{" "}
+      </p>
     </div>
   );
 }
