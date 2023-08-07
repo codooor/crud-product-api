@@ -11,7 +11,7 @@ export default function Navbar() {
               <a href="/products">Products</a>
             </li>
             <li>
-              <a href="/posts">Testimonials</a>
+              <a href="/testimonials">Testimonials</a>
             </li>
             <li>
               <a href="/admin-login">Login</a>
