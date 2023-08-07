@@ -20,7 +20,7 @@ const UserType = new GraphQLObjectType({
   name: "User",
   fields: () => ({
     id: { type: new GraphQLNonNull(GraphQLID) },
-    name: { type: new GraphQLNonNull(GraphQLString) },
+
     email: { type: new GraphQLNonNull(GraphQLString) },
   }),
 });
@@ -78,7 +78,6 @@ const mutation = new GraphQLObjectType({
     registerUser: {
       type: UserType,
       args: {
-        name: { type: new GraphQLNonNull(GraphQLString) },
         email: { type: new GraphQLNonNull(GraphQLString) },
         password: { type: new GraphQLNonNull(GraphQLString) },
       },
@@ -92,7 +91,6 @@ const mutation = new GraphQLObjectType({
         const hashedPassword = await bcrypt.hash(args.password, salt);
 
         user = new User({
-          name: args.name,
           email: args.email,
           password: args.password,
         });

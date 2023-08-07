@@ -253,6 +253,22 @@ code {
 }
 
 /* ------------------------------------- */
+/* Register Form */
+/* ------------------------------------- */
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.login-prompt {
+  text-align: center;
+  font-size: 14px;
+  padding: 10px;
+}
+
+/* ------------------------------------- */
 /* Login Form */
 /* ------------------------------------- */
 

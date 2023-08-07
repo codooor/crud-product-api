@@ -6,7 +6,6 @@ const LOGIN_USER = gql`
       token
       user {
         id
-        name
         email
       }
     }

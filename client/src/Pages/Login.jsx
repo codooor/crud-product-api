@@ -1,5 +1,5 @@
 import { useMutation } from "@apollo/client";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { LOGIN_USER } from "../mutations";
 
@@ -49,7 +49,7 @@ export default function Login() {
       </form>
 
       <p className="register-prompt">
-        Don't have an account? <a href="/register">Register Here</a>{" "}
+        Don't have an account? <Link to="/register">Register Here</Link>{" "}
       </p>
     </div>
   );
