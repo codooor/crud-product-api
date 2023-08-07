@@ -6,7 +6,7 @@ export default function UserMenu() {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    navigate("/login");
+    navigate("/mission");
   };
 
   return (
@@ -25,7 +25,9 @@ export default function UserMenu() {
         </li>
         <hr />
         <li>
-          <a onClick={handleLogout}>Logout</a>
+          <a href="/mission" onClick={handleLogout}>
+            Logout
+          </a>
         </li>
       </ul>
     </li>
