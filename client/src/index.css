@@ -50,12 +50,6 @@ code {
   z-index: 1000;
 }
 
-.navbar-logo {
-  color: rgb(150, 27, 27);
-  text-decoration: none;
-  font-size: 1.5rem;
-}
-
 .navbar-menu {
   list-style-type: none;
   padding: 0;
@@ -70,6 +64,56 @@ code {
 
 .navbar-menu li a:hover {
   text-decoration: none;
+  color: rgb(192, 31, 179);
+}
+
+.user-menu {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 100%;
+  background-color: #430f58;
+  border: 1px solid #999;
+}
+
+.user-menu:hover .dropdown-menu {
+  display: block;
+}
+
+.account {
+  color: #9896f1;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+}
+
+.account:hover {
+  color: rgb(192, 31, 179);
+}
+
+.dropdown-menu li {
+  background: none;
+  color: #9896f1;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.dropdown-menu li a,
+.dropdown-menu li {
+  color: #9896f1;
+}
+
+.dropdown-menu li a:hover,
+.dropdown-menu li {
   color: rgb(192, 31, 179);
 }
 

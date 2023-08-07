@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { UserMenu } from "../components";
 
 export default function Navbar() {
   return (
@@ -15,12 +16,7 @@ export default function Navbar() {
             <li>
               <Link to="/testimonials">Testimonials</Link>
             </li>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
-              <Link to="/register">Register</Link>
-            </li>
+            <UserMenu />
           </ul>
         </nav>
       </header>
