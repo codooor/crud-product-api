@@ -321,6 +321,38 @@ code {
 }
 
 /* ------------------------------------- */
+/* Wholesale*/
+/* ------------------------------------- */
+
+.wholesale-container {
+  display: flex;
+  background: linear-gradient(45deg, rgba(85, 50, 117, 0.1), #f5efff);
+  border-radius: 10px;
+  padding: 1rem;
+  color: rgb(85, 50, 117);
+}
+
+.wholesale-container p {
+  text-align: center;
+}
+
+.wholesale-list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.wholesale-list li:hover {
+  background-color: rgba(85, 50, 117, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.wholesale-information {
+  margin: 2rem;
+  color: rgb(85, 50, 117);
+}
+/* ------------------------------------- */
 /* Register Form */
 /* ------------------------------------- */
 

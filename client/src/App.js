@@ -1,5 +1,12 @@
 import { Hero, Navbar } from "./components";
-import { Mission, Products, Testimonials, Login, Register } from "./Pages/";
+import {
+  Mission,
+  Products,
+  Testimonials,
+  Login,
+  Register,
+  Wholesale,
+} from "./Pages/";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -15,6 +22,7 @@ function App() {
             <Route path="/testimonials" element={<Testimonials />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/wholesale" element={<Wholesale />} />
           </Routes>
         </main>
       </Router>

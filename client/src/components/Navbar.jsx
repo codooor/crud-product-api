@@ -29,6 +29,11 @@ export default function Navbar() {
                 Testimonials
               </Link>
             </li>
+            <li>
+              <Link to="/wholesale" onClick={() => setIsOpen(false)}>
+                Wholesale
+              </Link>
+            </li>
             <UserMenu />
           </ul>
         </nav>
