@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { UserMenu } from "../components";
-import { FaBars } from "react-icons/fa"; // Assuming you use this library
+import { CiMenuBurger } from "react-icons/ci";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +11,7 @@ export default function Navbar() {
       <header className="navbar">
         <nav className="navbar-container">
           <button onClick={() => setIsOpen(!isOpen)} className="menu-icon">
-            <FaBars />
+            <CiMenuBurger />
           </button>
           <ul className={isOpen ? "navbar-menu open" : "navbar-menu"}>
             <li>
