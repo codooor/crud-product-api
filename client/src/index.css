@@ -214,10 +214,10 @@ code {
 
 .product-container {
   flex: 0 1 calc(33.333% - 20px);
-
+  background: linear-gradient(45deg, rgba(85, 50, 117, 0.1), #f5efff);
   display: flex;
   flex-direction: column;
-  border: 1px solid #ddd;
+  border: 2px solid #ddd;
   border-radius: 8px;
   padding: 15px;
   margin-bottom: 15px;
@@ -286,6 +286,7 @@ code {
   padding: 20px;
   position: relative;
   margin: 0.5rem;
+  background: linear-gradient(45deg, rgba(85, 50, 117, 0.1), #f5efff);
 }
 
 .title,

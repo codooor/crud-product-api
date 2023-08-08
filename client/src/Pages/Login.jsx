@@ -2,13 +2,21 @@ import { useMutation } from "@apollo/client";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { LOGIN_USER } from "../mutations";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [login, { loading, error }] = useMutation(LOGIN_USER);
+  const [login] = useMutation(LOGIN_USER);
 
   const navigate = useNavigate();
+
+  const handleError = (err) => {
+    toast.error(err, {
+      position: "top-left",
+    });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,9 +26,11 @@ export default function Login() {
 
       if (data) {
         localStorage.setItem("token", data.login.token);
+
         navigate("/products");
       }
     } catch (err) {
+      handleError(err.message);
       console.error(err);
     }
   };
@@ -44,13 +54,12 @@ export default function Login() {
         <button className="form-button" type="submit">
           Login
         </button>
-        {loading && <p>Loading...</p>}
-        {error && <p className="error-message">Error :( Please try again</p>}
       </form>
 
       <p className="register-prompt">
         Don't have an account? <Link to="/register">Register Here</Link>{" "}
       </p>
+      <ToastContainer />
     </div>
   );
 }
